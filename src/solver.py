@@ -1,9 +1,11 @@
 from constraint import Problem, AllDifferentConstraint
 from pathlib import Path
-from txt_reader import parse_txt
+# from txt_reader import parse_txt
 
 
-def solve_problem(p:Problem, data:list, clues:list):
+def solve_problem(data:list, clues:list):
+	p = Problem()
+	
 	groups = len(data[0][1])
 	domains = len(data)
 	criteria_items = []
@@ -75,10 +77,12 @@ def match(a, b):
 
 
 if __name__ == '__main__':
-	p = Problem()
+	from txt_reader import parse_txt
+	
+	# p = Problem()
 	data_folder = Path(__file__).parents[1] / "puzzles"
 	datafile = data_folder / "einstein" / "medium" / "7.txt"
 
 	data, clues = parse_txt(datafile)
-	solve_problem(p, data, clues)
+	solve_problem(data, clues)
 	

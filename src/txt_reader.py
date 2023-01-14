@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import re
 
 def parse_txt(txtfile):
 	with open(txtfile, "r", encoding="utf8") as f:
@@ -39,19 +40,24 @@ def parse_clueline(line):
 		type = "0"
 	if line[0] == "+":
 		type = "1"
-
-	ll = line[1:].split(',')
+		
+	ll = line[1:]
+	ll = re.split(',|[\t]', ll)
+	if len(ll) != 2:
+		ll.pop(0)
 	ll.append(type)
 
 	return ll
 
 
 def parse_dataline(line):
-	return line.split(',')
+	# return line.split(',')
+	return re.split(',|[\t]', line)
 
 if __name__ == '__main__':
 	data_folder = Path(__file__).parents[1] / "puzzles"
 	
+	# f = data_folder / "einstein" / "medium" / "7.2.tsv"
 	f = data_folder / "einstein" / "medium" / "7.txt"
 	data, clues = parse_txt(f)
 	print(data)
