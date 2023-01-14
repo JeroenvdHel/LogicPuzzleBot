@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 def parse_txt(txtfile):
 	with open(txtfile, "r", encoding="utf8") as f:
 		lines = f.readlines()
@@ -47,7 +50,9 @@ def parse_dataline(line):
 	return line.split(',')
 
 if __name__ == '__main__':
-	f = r'../puzzles/einstein/medium/7.txt'
+	data_folder = Path(__file__).parents[1] / "puzzles"
+	
+	f = data_folder / "einstein" / "medium" / "7.txt"
 	data, clues = parse_txt(f)
 	print(data)
 	print(clues)
