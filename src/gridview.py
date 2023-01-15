@@ -37,9 +37,9 @@ if __name__ == '__main__':
     print("-"*20)
     print("y (Vertical)")
     ysorted = sorted(groups, key=lambda g: g.ypos)
-    # for y in ysorted:
-        # if y.ypos != '1':
-            #print(y.name)
-           # print(y.ypos)
-          #  print(type(y.ypos))
-print([ys.name for ys in ysorted if ys.ypos !='0'])
+    for y in ysorted:
+        if y.ypos != '0':
+            print(y.name)
+            # print(y.ypos)
+            # print(type(y.ypos))
+# print([ys.name for ys in ysorted if ys.ypos !='0'])
