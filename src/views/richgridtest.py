@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # row2 = Row("A2", "B2", "C2")
     # row3 = Row("A3", "B3", "C3")
 
-    grid = Table()
+    grid = Table.grid()
     grid.add_column(col1)
     grid.add_column(col2)
     grid.add_column(col3)
